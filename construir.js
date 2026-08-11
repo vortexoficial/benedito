@@ -384,6 +384,20 @@ const redirects = [
 fs.writeFileSync(path.join(SAIDA, "_redirects"), redirects, "utf8");
 
 /* ------------------------------------------------------------
+   GITHUB PAGES
+   CNAME: é assim que o GitHub sabe qual domínio serve este site.
+   Sem ele, o domínio personalizado se perde a cada publicação.
+
+   .nojekyll: o GitHub roda Jekyll por padrão, e o Jekyll ignora
+   arquivos e pastas que começam com underscore. Este arquivo
+   desliga esse comportamento — barato, e evita uma classe inteira
+   de erro difícil de diagnosticar.
+   ------------------------------------------------------------ */
+const DOMINIO_NU = DOMINIO.replace(/^https?:\/\//, "");
+fs.writeFileSync(path.join(SAIDA, "CNAME"), DOMINIO_NU + "\n", "utf8");
+fs.writeFileSync(path.join(SAIDA, ".nojekyll"), "", "utf8");
+
+/* ------------------------------------------------------------
    Prévia em arquivo único (para publicar como artefato):
    fontes, CSS e JS embutidos; sem nenhuma requisição externa.
    ------------------------------------------------------------ */

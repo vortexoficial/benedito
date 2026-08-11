@@ -6,7 +6,6 @@
   "scripts": {
     "build": "node construir.js",
     "validar": "node tools/validar-site.js",
-    "deploy": "node construir.js && wrangler pages deploy site --project-name=benedito-furtado --branch=main --commit-dirty=true",
-    "previa": "node construir.js && wrangler pages deploy site --project-name=benedito-furtado --branch=previa --commit-dirty=true"
+    "publicar": "node construir.js && git add -A && git commit -m \"Atualiza o site\" && git push"
   }
 }

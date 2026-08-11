@@ -5,7 +5,7 @@ trajetória, as 32 leis municipais de proteção animal, obra literária,
 galeria e canais do gabinete.
 
 **Produção:** https://beneditofurtado.com.br
-**Pages:** https://benedito-furtado.pages.dev
+**Hospedagem:** GitHub Pages, publicado por GitHub Actions a cada push na main.
 
 ---
 
@@ -30,7 +30,7 @@ A linha do tempo e os painéis são gerados a partir delas.
 ```
 npm run build      monta site/
 npm run validar    abre o site no navegador e confere pontos críticos
-npm run deploy     build + publicação no Cloudflare Pages
+npm run publicar   build + commit + push (o GitHub publica sozinho)
 ```
 
 O build também gera `previa-artefato.html` na raiz: uma cópia do site num
@@ -44,14 +44,15 @@ apresentação local e **não vai para produção**.
 `site/` é exatamente o que vai para o ar. Nada precisa ser filtrado na hora
 de publicar.
 
-- `site/_headers` e `site/_redirects` — configuração do Cloudflare Pages,
-  geradas pelo build.
-- `site/.htaccess` — equivalente para servidor Apache. O Cloudflare ignora
-  arquivos que começam com ponto, então convive sem conflito.
+- `site/CNAME` e `site/.nojekyll` — o que o GitHub Pages precisa para
+  servir o domínio próprio e não passar o site pelo Jekyll.
+- `site/_headers`, `site/_redirects` e `site/.htaccess` — configuração para
+  Cloudflare e Apache. Inertes no GitHub Pages; existem para o site poder
+  mudar de hospedagem sem retrabalho.
 
-Detalhes e o passo a passo do domínio em [PUBLICAR-CLOUDFLARE.md](PUBLICAR-CLOUDFLARE.md).
-O retrato do DNS antes da migração, com os registros de e-mail que não podem
-se perder, está em [DNS-registros-atuais.md](DNS-registros-atuais.md).
+Passo a passo, incluindo como ligar o domínio sem mexer no e-mail, em
+[PUBLICAR.md](PUBLICAR.md). O retrato do DNS atual, com os registros que
+mantêm o e-mail vivo, está em [DNS-registros-atuais.md](DNS-registros-atuais.md).
 
 ---
 
