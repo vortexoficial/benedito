@@ -1,0 +1,27 @@
+# Gerado por construir.js. Não editar à mão.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+
+# O HTML é sempre revalidado: é ele que carrega os selos de versão
+# do CSS e do JS, então precisa chegar fresco para o resto seguir.
+/
+  Cache-Control: no-cache
+/*.html
+  Cache-Control: no-cache
+
+# CSS e JS levam ?v= no endereço: mudou o arquivo, muda a URL.
+# Por isso podem ser guardados por um ano sem risco de versão velha.
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/fontes/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imagens não têm selo: um mês, para poderem ser trocadas.
+/assets/img/*
+  Cache-Control: public, max-age=2592000

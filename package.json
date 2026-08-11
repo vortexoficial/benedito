@@ -1,0 +1,12 @@
+{
+  "name": "benedito-furtado",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional do vereador Benedito Furtado de Andrade (Santos/SP).",
+  "scripts": {
+    "build": "node construir.js",
+    "validar": "node tools/validar-site.js",
+    "deploy": "node construir.js && wrangler pages deploy site --project-name=benedito-furtado --branch=main --commit-dirty=true",
+    "previa": "node construir.js && wrangler pages deploy site --project-name=benedito-furtado --branch=previa --commit-dirty=true"
+  }
+}

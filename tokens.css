@@ -1,0 +1,77 @@
+/* ==========================================================
+   Benedito Furtado 4066 - tokens de identidade visual
+   Gerado a partir de identidade-visual.html
+   Fontes: Archivo + Public Sans (SIL OFL 1.1) - hospedar no proprio dominio
+   ========================================================== */
+
+:root {
+  /* Cores da marca */
+  --bf-vermelho:       #E1251B;
+  --bf-vermelho-grave: #A6121A;
+  --bf-amarelo:        #FFC800;
+  --bf-grafite:        #191614;
+  --bf-cinza:          #6C645F;
+  --bf-cinza-claro:    #E6E2DE;
+  --bf-branco:         #FFFFFF;
+
+  /* Papéis — tema claro único, sem inversão automática */
+  --fundo:       #FFFFFF;
+  --fundo-2:     #F5F3F1;
+  --fundo-3:     #ECE8E5;
+  --texto:       var(--bf-grafite);
+  --texto-2:     var(--bf-cinza);
+  --linha:       var(--bf-cinza-claro);
+  --linha-forte: #CFC8C2;
+  --titulo:      var(--bf-vermelho-grave);
+  --acao:        var(--bf-vermelho);
+  --acao-texto:  #FFFFFF;
+
+  /* Tipografia */
+  --display: "Archivo", "Arial Black", Helvetica, sans-serif;
+  --texto-fonte: "Public Sans", "Segoe UI", system-ui, sans-serif;
+
+  /* Espaçamento (escala de 4) */
+  --e1: 4px;  --e2: 8px;  --e3: 12px; --e4: 16px;
+  --e5: 24px; --e6: 32px; --e7: 48px; --e8: 64px;
+  --e9: 96px; --e10: 128px;
+
+  --largura: 1160px;
+  --raio: 3px;
+}
+
+/* A assinatura inteira escala por --m. Trocar --m é a única forma
+   permitida de mudar o tamanho da marca. */
+.marca {
+  --m: 1rem;
+  --m-nome:   var(--bf-grafite);
+  --m-numero: var(--bf-vermelho);
+  --m-cargo:  var(--bf-cinza);
+  --m-pincel: var(--bf-amarelo);
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  gap: calc(var(--m) * .34); line-height: 1;
+}
+.marca-nome {
+  position: relative; display: inline-block; white-space: nowrap;
+  font-family: var(--display); font-weight: 900; font-stretch: 104%;
+  font-size: calc(var(--m) * 2); letter-spacing: -.035em; line-height: .9;
+  color: var(--m-nome); padding-bottom: calc(var(--m) * .42);
+}
+.marca-pincel {           /* svg da pincelada, esticado sob o nome */
+  position: absolute; left: -1.5%; bottom: 0; width: 103%;
+  height: calc(var(--m) * .4); color: var(--m-pincel);
+}
+.marca-numero {
+  font-family: var(--display); font-weight: 900; font-stretch: 120%;
+  font-size: calc(var(--m) * 2.35); letter-spacing: -.025em; line-height: .86;
+  color: var(--m-numero); font-variant-numeric: tabular-nums;
+}
+.marca-cargo {
+  font-family: var(--display); font-weight: 700; font-stretch: 80%;
+  font-size: calc(var(--m) * .48); letter-spacing: .2em; text-transform: uppercase;
+  color: var(--m-cargo);
+}
+
+/* Versões: só trocam os quatro tokens de cor */
+.m-negativa { --m-nome:#FFF; --m-numero:var(--bf-amarelo); --m-cargo:rgba(255,255,255,.74); --m-pincel:var(--bf-amarelo); }
+.m-vermelho { --m-nome:#FFF; --m-numero:#FFF; --m-cargo:rgba(255,255,255,.8); --m-pincel:var(--bf-amarelo); }
+.m-mono     { --m-nome:var(--bf-grafite); --m-numero:var(--bf-grafite); --m-cargo:var(--bf-grafite); --m-pincel:var(--bf-grafite); }

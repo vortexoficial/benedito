@@ -1,0 +1,17 @@
+# Arquivo de apresentação local: 8 MB com tudo embutido, gerado pelo build.
+previa-artefato.html
+
+# Masters e material de origem: pesados e não publicáveis.
+originais-nao-publicar/
+fotos/
+*.psd
+*.cdr
+*.zip
+
+# Pacote da publicação antiga na Hostinger.
+benedito-furtado-hostinger.zip
+
+node_modules/
+.wrangler/
+.DS_Store
+Thumbs.db
