@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node construir.js",
     "validar": "node tools/validar-site.js",
-    "publicar": "node construir.js && git add -A && git commit -m \"Atualiza o site\" && git push"
+    "publicar": "node construir.js && git add -A && git commit -m \"Atualiza o site\" && git push",
+    "icones": "node tools/gerar-icones.js",
+    "social": "node tools/capturar-og.js"
   }
 }

@@ -276,14 +276,11 @@ arquivos.forEach(function (arquivo) {
   geradas.push(arquivo);
 });
 
-/* ---------- favicon: quadrado vermelho com a pincelada ---------- */
-const favicon =
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
-  '<rect width="64" height="64" rx="6" fill="#E1251B"/>' +
-  '<path d="M6 34 C 16 28, 26 38, 36 31 C 44 25, 52 33, 58 28 L 58 40 C 50 45, 42 38, 34 42 C 24 47, 14 41, 6 45 Z" fill="#FFC800"/>' +
-  "</svg>";
+/* Os ícones (monograma BF) não são gerados aqui: exigem um navegador,
+   porque usam a Zilla Slab de verdade. Ficam versionados em
+   docs/assets/img/ e se regeneram com "npm run icones" quando o
+   desenho mudar, o que quase nunca acontece. */
 fs.mkdirSync(path.join(SAIDA, "assets", "img"), { recursive: true });
-fs.writeFileSync(path.join(SAIDA, "assets", "img", "favicon.svg"), favicon, "utf8");
 
 /* ---------- robots.txt e sitemap ---------- */
 fs.writeFileSync(path.join(SAIDA, "robots.txt"),
