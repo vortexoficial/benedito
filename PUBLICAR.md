@@ -13,16 +13,27 @@ git commit -m "o que mudou"
 git push
 ```
 
-Só isso. O GitHub roda o build sozinho (`.github/workflows/publicar.yml`),
-gera a pasta `site/` e publica. Leva cerca de um minuto.
+Ou, em um comando: `npm run publicar`.
 
-O andamento fica em **Actions**, no repositório. Se algo falhar, o passo
-falha lá e **o site no ar não é alterado** — a versão anterior continua
-servindo.
+**O build tem que rodar antes do commit.** A pasta `docs/` é o site publicado,
+e é ela que vai versionada para o repositório. Publicar sem construir sobe o
+site anterior.
 
-Não é preciso rodar `node construir.js` antes de commitar: o build acontece
-no servidor, a partir do que está no repositório. Rodar localmente serve só
-para conferir no navegador antes de subir.
+## Por que o build não roda sozinho
+
+O GitHub Actions está bloqueado nesta conta por questão de cobrança
+(*"your account is locked due to a billing issue"*). Com ele parado, o site
+publica pelo **build interno do Pages**, que serve a pasta `docs/` do branch
+`main` e não depende do Actions.
+
+O workflow em `.github/workflows/publicar.yml` está pronto e desligado. Assim
+que a cobrança for resolvida:
+
+1. Descomentar o gatilho `push` no arquivo.
+2. Em *Settings → Pages*, trocar **Source** para **GitHub Actions**.
+
+A partir daí o build volta a rodar no servidor e `git push` basta, sem
+precisar lembrar de construir antes.
 
 ---
 

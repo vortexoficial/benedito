@@ -17,8 +17,8 @@ build monta as páginas a partir de um template e de um arquivo de conteúdo.
 ```
 src/base.html          template comum (cabeçalho, rodapé, sprite de ícones)
 src/paginas/*.html     conteúdo de cada página, com frente-matéria
-construir.js           build: monta site/, gera sitemap, headers e redirects
-site/                  o site publicado — é isto que vai para o ar
+construir.js           build: monta docs/, gera sitemap, headers e redirects
+docs/                  o site publicado — é isto que vai para o ar
 tools/                 scripts de apoio (validação, captura da imagem social)
 ```
 
@@ -28,7 +28,7 @@ A linha do tempo e os painéis são gerados a partir delas.
 ### Rodar
 
 ```
-npm run build      monta site/
+npm run build      monta docs/
 npm run validar    abre o site no navegador e confere pontos críticos
 npm run publicar   build + commit + push (o GitHub publica sozinho)
 ```
@@ -41,12 +41,12 @@ apresentação local e **não vai para produção**.
 
 ## Publicação
 
-`site/` é exatamente o que vai para o ar. Nada precisa ser filtrado na hora
+`docs/` é exatamente o que vai para o ar. Nada precisa ser filtrado na hora
 de publicar.
 
-- `site/CNAME` e `site/.nojekyll` — o que o GitHub Pages precisa para
+- `docs/CNAME` e `docs/.nojekyll` — o que o GitHub Pages precisa para
   servir o domínio próprio e não passar o site pelo Jekyll.
-- `site/_headers`, `site/_redirects` e `site/.htaccess` — configuração para
+- `docs/_headers`, `docs/_redirects` e `docs/.htaccess` — configuração para
   Cloudflare e Apache. Inertes no GitHub Pages; existem para o site poder
   mudar de hospedagem sem retrabalho.
 

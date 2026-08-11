@@ -1,7 +1,7 @@
 /* ============================================================
    Build do site — Benedito Furtado
    Uso:  node construir.js
-   Lê src/base.html + src/paginas/*.html e escreve site/*.html.
+   Lê src/base.html + src/paginas/*.html e escreve docs/*.html.
    Gera também previa-artefato.html na RAIZ (arquivo único, para
    apresentação local). Fora de site/ de propósito: site/ é exatamente
    o que vai para produção, e a prévia tem 8 MB de ativos embutidos.
@@ -11,7 +11,10 @@ const path = require("path");
 
 const RAIZ = __dirname;
 const SRC = path.join(RAIZ, "src");
-const SAIDA = path.join(RAIZ, "site");
+/* O GitHub Pages, publicando direto de um branch, só aceita a raiz do
+   repositório ou uma pasta chamada docs. Daí o nome: não é preferência,
+   é a única pasta que ele serve sem depender do Actions. */
+const SAIDA = path.join(RAIZ, "docs");
 const DOMINIO = "https://beneditofurtado.com.br";
 const IMAGEM_SOCIAL = DOMINIO + "/assets/img/benedito-furtado-compartilhamento.jpg";
 

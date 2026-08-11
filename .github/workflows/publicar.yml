@@ -1,15 +1,23 @@
-# Publica o site no GitHub Pages a cada push na main.
+# DESLIGADO — não roda no push.
 #
-# O build roda aqui, no servidor do GitHub, e não depende de ninguém
-# lembrar de rodar `node construir.js` antes de commitar: o que vai
-# para o ar é sempre gerado a partir do que está no repositório.
+# O GitHub Actions está bloqueado nesta conta por questão de cobrança
+# ("your account is locked due to a billing issue"), então toda execução
+# falharia e encheria o histórico de erro vermelho.
+#
+# Enquanto isso, o site publica pelo build interno do Pages, direto da
+# pasta docs/ no branch main. Não depende do Actions.
+#
+# Este arquivo fica guardado porque o caminho é bom: resolvida a cobrança,
+# basta descomentar o gatilho de push abaixo e mudar a origem do Pages
+# para "GitHub Actions". Aí o build passa a rodar no servidor e ninguém
+# precisa mais lembrar de rodar o build antes de commitar.
 
 name: Publicar no GitHub Pages
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:        # permite publicar manualmente pelo painel do GitHub
+  # push:
+  #   branches: [main]
+  workflow_dispatch:        # só manual, enquanto o Actions estiver bloqueado
 
 permissions:
   contents: read
@@ -37,14 +45,14 @@ jobs:
 
       - name: Conferir que o build saiu íntegro
         run: |
-          test -f site/index.html || { echo "index.html não foi gerado"; exit 1; }
-          test -f site/CNAME     || { echo "CNAME não foi gerado"; exit 1; }
-          test -f site/.nojekyll || { echo ".nojekyll não foi gerado"; exit 1; }
-          echo "arquivos em site/: $(find site -type f | wc -l)"
+          test -f docs/index.html || { echo "index.html não foi gerado"; exit 1; }
+          test -f docs/CNAME     || { echo "CNAME não foi gerado"; exit 1; }
+          test -f docs/.nojekyll || { echo ".nojekyll não foi gerado"; exit 1; }
+          echo "arquivos em docs/: $(find docs -type f | wc -l)"
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: docs
 
   publicar:
     needs: construir
