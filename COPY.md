@@ -271,7 +271,7 @@ Não há formulário de cadastro ou captação de leads no projeto.
 ### Rodapé
 Rodapé institucional em bloco escuro, com navegação, redes sociais, os dois
 contatos do gabinete, aviso institucional, retorno ao topo e assinatura
-“Desenvolvido por Futura Design”, com link para `agenciafuturadesign.com`.
+“Desenvolvido por Futura Design”, com link para `futurabr.com`.
 
 ---
 
